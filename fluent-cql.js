@@ -219,7 +219,10 @@ function FluentCql() {
     };
 
     this._columns = function _columns(columns) {
-        if (!columns || columns.length === 0) {
+        if (this.err) {
+            return this;
+        }
+        if (!columns || _.isEmpty(columns)) {
             return this.setError('table columns are missing in TABLE');
         }
         if (_.isString(columns)) {
@@ -243,12 +246,12 @@ function FluentCql() {
         var primaryKeyContents = primaryKey[1];
         if (!_.isString(primaryKeyContents)) {
             if (!_.isArray(primaryKeyContents) || primaryKeyContents.length === 0) {
-                return this.setError('PRIMARY KEY not found in TABLE');
+                return this.setError('PRIMARY_KEY not found in TABLE');
             }
             var usedColumns = _.flatten(primaryKeyContents);
             var unknownColumns = _.difference(usedColumns, columnKeys);
             if (!_.all(usedColumns, _.isString) || unknownColumns.length > 0) {
-                return this.setError('PRIMARY KEY contains unknown columns ' + unknownColumns.join() + ' in TABLE');
+                return this.setError('PRIMARY_KEY contains unknown columns ' + unknownColumns.join() + ' in TABLE');
             }
             if (_.isArray(primaryKeyContents[0])) {
                 primaryKeyContents[0] = '(' + primaryKeyContents[0].join(', ') + ')';
@@ -275,78 +278,81 @@ function FluentCql() {
 function cqlQueries() {
     var obj = {};
     // This list of FluentCql class functions will be reused and delegated to.
-    _.each(['select', 'create'],
+    _.each(['select', 'selectAll', 'create'],
         function (name) {
-            var fluentCql = new FluentCql();
-            obj[name] = _.bind(fluentCql[name], fluentCql);
+            obj[name] = _.bind(
+                function () {
+                    var fluentCql = new FluentCql();
+                    return fluentCql[name]();
+                }, new FluentCql());
         });
     return obj;
 }
 
 var fcql = stampit().state(cqlQueries()).state(cqlTypes()).create();
 module.exports = fcql;
-
-console.log('=== VALID ===');
-
-var test = fcql.select('*').from('somewhere');
-console.log(test.toString());
-
-test = new FluentCql();
-test.selectAll().from('tbl').where({a: "a"});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc', 'blya').from('sometable').where({a: {GT: 'str123'}, b: [321, 123], c: {LT: 1.0}});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc').from('sometable').where({a: 'eq str', b: 13.1, c: new Date()});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc').from('sometable').where({a: {GE: 123}, b: {GE: new Date(), LT: new Date()}});
-console.log(test.toString());
-
-
-test = fcql.create().tableIfNotExists('tblName', {
-    name: 'text',
-    eventDate: 'text',
-    reader: 'text',
-    antenna: fcql.int,
-    description: 'text',
-    PRIMARY_KEY: [
-        ['name', 'eventDate'],
-        'reader',
-        'antenna'
-    ]
-});
-console.log(test.toString());
-
-console.log('=== FAULTY ===');
-
-test = new FluentCql();
-test.select('pzdc').from('sometable').where({a: []});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc').from('sometable').where({a: {ELSE: "1.0"}});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc').from('sometable').where({a: {GE: 123}, b: undefined, c: {LE: "1.0"}});
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select().from('sometable');
-console.log(test.toString());
-
-
-test = new FluentCql();
-test.select('pzdc').from();
-console.log(test.toString());
+//
+//console.log('=== VALID ===');
+//
+//var test = fcql.select('*').from('somewhere');
+//console.log(test.toString());
+//
+//test = new FluentCql();
+//test.selectAll().from('tbl').where({a: "a"});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc', 'blya').from('sometable').where({a: {GT: 'str123'}, b: [321, 123], c: {LT: 1.0}});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc').from('sometable').where({a: 'eq str', b: 13.1, c: new Date()});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc').from('sometable').where({a: {GE: 123}, b: {GE: new Date(), LT: new Date()}});
+//console.log(test.toString());
+//
+//
+//test = fcql.create().tableIfNotExists('tblName', {
+//    name: 'text',
+//    eventDate: 'text',
+//    reader: 'text',
+//    antenna: fcql.int,
+//    description: 'text',
+//    PRIMARY_KEY: [
+//        ['name', 'eventDate'],
+//        'reader',
+//        'antenna'
+//    ]
+//});
+//console.log(test.toString());
+//
+//console.log('=== FAULTY ===');
+//
+//test = new FluentCql();
+//test.select('pzdc').from('sometable').where({a: []});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc').from('sometable').where({a: {ELSE: "1.0"}});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc').from('sometable').where({a: {GE: 123}, b: undefined, c: {LE: "1.0"}});
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select().from('sometable');
+//console.log(test.toString());
+//
+//
+//test = new FluentCql();
+//test.select('pzdc').from();
+//console.log(test.toString());
