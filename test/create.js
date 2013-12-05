@@ -1,6 +1,6 @@
 'use strict';
 
-var assert = require('assert');
+var demand = require('must');
 var fcql = require('../fluent-cql');
 var _ = require('underscore');
 var _s = require('underscore.string');
@@ -17,11 +17,11 @@ describe('fcql', function () {
             query.err = oldMsg;
             query = fcql.create();
 
-            assert.notEqual(oldMsg, query.err);
+            oldMsg.must.not.equal(query.err);
         });
 
         it('should write CREATE', function () {
-            assert(_s.startsWith(query.toString(), 'CREATE'));
+            query.toString().must.include('CREATE');
         });
 
         describe('table', function () {
@@ -31,49 +31,49 @@ describe('fcql', function () {
 
             it('should write CREATE TABLE', function () {
                 query.table('tableName', {a: 'int', PRIMARY_KEY: 'a'});
-                assert(_s.startsWith(query.toString(), 'CREATE TABLE'));
+                query.toString().must.include('CREATE TABLE');
             });
 
             it('should validate column types', function () {
                 query.table('tableName', {a: 'text', b: 'string', PRIMARY_KEY: ['a', 'b']});
 
-                assert(query.err, query.err);
-                assert(_s.contains(query.err, 'types'), query.err);
+                query.err.must.exist();
+                query.err.must.include('types');
             });
 
             it('should require table name', function () {
                 query.table(' ');
 
-                assert(query.err, query.err);
-                assert(_s.contains(query.err, 'table name'));
+                query.err.must.exist();
+                query.err.must.include('table name');
             });
 
             it('should require table columns', function () {
                 query.table('tableName', {});
 
-                assert(query.err, query.err);
-                assert(_s.contains(query.err, 'columns'));
+                query.err.must.exist();
+                query.err.must.include('columns');
             });
 
             it('should insist on PRIMARY_KEY', function () {
                 query.table('tableName', {a: 'timestamp'});
 
-                assert(query.err, query.err);
-                assert(_s.contains(query.err, 'PRIMARY_KEY'));
+                query.err.must.exist();
+                query.err.must.include('PRIMARY_KEY');
             });
 
             it('should not allow unknown columns in PRIMARY_KEY', function () {
                 query.table('tableName', {a: 'float', PRIMARY_KEY: ['a', 'b']});
 
-                assert(query.err, query.err);
-                assert(_s.contains(query.err, 'PRIMARY_KEY'));
+                query.err.must.exist();
+                query.err.must.include('PRIMARY_KEY');
             });
 
             it('should put semicolon at the end', function () {
                 query.table('tableName', {a: 'double', b: 'text', PRIMARY_KEY: ['a', 'b']});
 
-                assert(!query.err, query.err);
-                assert(_s.endsWith(query.toString(), ';'));
+                demand(query.err).be.undefined();
+                demand(_s.endsWith(query.toString(), ';'));
             });
         });
     });
