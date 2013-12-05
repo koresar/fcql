@@ -1,9 +1,7 @@
 'use strict';
 
-var demand = require('must');
 var fcql = require('../fluent-cql');
 var _ = require('underscore');
-var _s = require('underscore.string');
 
 describe('fcql', function () {
     it('should contain all 16 CQL types', function () {

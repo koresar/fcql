@@ -28,7 +28,7 @@ function FluentCql() {
      * Returns the resulting query string, OR error message.
      * @returns {string}
      */
-    this.toString = function toString() {
+    this.build = function build() {
         var q = _s.isBlank(query) ? ';' : (_s.rtrim(query) + ';');
         return this.err ? (this.err + (_s.isBlank(query) ? '' : _s.quote(query + '???'))) : q;
     };
@@ -49,6 +49,7 @@ function FluentCql() {
      * @returns {FluentCql}
      */
     this.concat = function concat(str) {
+        // TODO: DRY this if
         if (this.err) {
             return this;
         }
@@ -77,7 +78,7 @@ function FluentCql() {
         }
 
         var args = _.compact(arguments);
-        if (args.length === 0) {
+        if (args.length === 0 || args[0].length === 0) {
             return this.setError('argument(s) missing in SELECT');
         }
 
@@ -151,18 +152,23 @@ function FluentCql() {
 
                 if (_.isString(value)) {
                     if (value.length === 0) {
-                        return this.setError('value is missing for key ' + key + ' in WHERE');
+                        return this.setError('value missing for key ' + key + ' in WHERE');
                     }
 
                     return [key, '=', JSON.stringify(value)].join(' ');
                 }
                 else if (_.isDate(value)) {
-                    // Lucky us the JSON.stringify(Date) produces UTC time. Otherwise I'd kill myself.
+                    // Lucky us the JSON.stringify(Date) produces UTC time. Otherwise we would have to adopt it for C*.
                     return [key, '=', JSON.stringify(value)].join(' ');
                 }
                 else if (_.isArray(value)) {
                     if (value.length === 0) {
-                        return this.setError('values are missing for key ' + key + ' in WHERE');
+                        return this.setError('value missing for key ' + key + ' in WHERE');
+                    }
+                    if (_.any(value, function (item) {
+                        return typeof value[0] !== typeof item;
+                    })) {
+                        return this.setError('values must be of the same type for key ' + key + ' in WHERE');
                     }
 
                     return [key, 'IN', '(' + _.map(value, JSON.stringify).join() + ')'].join(' ');
@@ -176,12 +182,18 @@ function FluentCql() {
                             LE: '<='
                         };
 
-                    if (operators.length < 1 || operators.length > 2 || !_.contains(_.keys(conditionOps), _s.capitalize(operators[0][0]))) {
+                    if (operators.length < 1 || operators.length > 2 ||
+                        !_.contains(_.keys(conditionOps), _s.capitalize(operators[0][0])) ||
+                        (operators.length === 2 && !_.contains(_.keys(conditionOps), _s.capitalize(operators[1][0])))) {
                         return this.setError('there must be 1 or 2 relational operator (EQ,GT,LT,LE,GE) for key ' + key + ' in WHERE');
                     }
 
                     var clause = [key, conditionOps[operators[0][0]], JSON.stringify(operators[0][1])];
                     if (operators.length === 2) {
+                        if (typeof operators[0][1] !== typeof operators[1][1]) {
+                            this.setError('comparing values of different types for key ' + key + ' in WHERE')
+                        }
+
                         clause.push('AND');
                         clause = clause.concat([key, conditionOps[operators[1][0]], JSON.stringify(operators[1][1])]);
                     }
@@ -296,26 +308,26 @@ module.exports = fcql;
 //console.log('=== VALID ===');
 //
 //var test = fcql.select('*').from('somewhere');
-//console.log(test.toString());
+//console.log(test.build());
 //
 //test = new FluentCql();
 //test.selectAll().from('tbl').where({a: "a"});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc', 'blya').from('sometable').where({a: {GT: 'str123'}, b: [321, 123], c: {LT: 1.0}});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc').from('sometable').where({a: 'eq str', b: 13.1, c: new Date()});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc').from('sometable').where({a: {GE: 123}, b: {GE: new Date(), LT: new Date()}});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = fcql.create().tableIfNotExists('tblName', {
@@ -330,30 +342,30 @@ module.exports = fcql;
 //        'antenna'
 //    ]
 //});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //console.log('=== FAULTY ===');
 //
 //test = new FluentCql();
 //test.select('pzdc').from('sometable').where({a: []});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc').from('sometable').where({a: {ELSE: "1.0"}});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc').from('sometable').where({a: {GE: 123}, b: undefined, c: {LE: "1.0"}});
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select().from('sometable');
-//console.log(test.toString());
+//console.log(test.build());
 //
 //
 //test = new FluentCql();
 //test.select('pzdc').from();
-//console.log(test.toString());
+//console.log(test.build());
