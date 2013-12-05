@@ -280,11 +280,12 @@ function cqlQueries() {
     // This list of FluentCql class functions will be reused and delegated to.
     _.each(['select', 'selectAll', 'create'],
         function (name) {
-            obj[name] = _.bind(
-                function () {
-                    var fluentCql = new FluentCql();
-                    return fluentCql[name]();
-                }, new FluentCql());
+            obj[name] = function () {
+                // Create new instance of the object each time.
+                var fluentCql = new FluentCql();
+                // Invoke the object's function.
+                return fluentCql[name].apply(fluentCql, arguments);
+            };
         });
     return obj;
 }
