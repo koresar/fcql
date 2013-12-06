@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fluent-cql.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fluent-cql.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fluent-cql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="340" column="3" selection-start="11461" selection-end="11461" vertical-scroll-proportion="0.26597583" vertical-offset="5626" max-vertical-offset="6205">
+            <state line="164" column="31" selection-start="4480" selection-end="4480" vertical-scroll-proportion="0.0" vertical-offset="2969" max-vertical-offset="6205">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="from.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/from.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="476">
+            <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
@@ -62,16 +62,16 @@
       <file leaf-file-name="where.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/where.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="40" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1989">
+            <state line="35" column="40" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fcql.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="fcql.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/fcql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="323">
+            <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.058721934" vertical-offset="0" max-vertical-offset="579">
               <folding />
             </state>
           </provider>
@@ -415,27 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/fcql.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/from.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/underscore/underscore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="991" column="4" selection-start="34900" selection-end="34900" vertical-scroll-proportion="0.33262712" vertical-offset="16639" max-vertical-offset="21743">
@@ -450,9 +429,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/where.js">
+    <entry file="file://$PROJECT_DIR$/fluent-cql.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="40" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1989">
+        <state line="164" column="31" selection-start="4480" selection-end="4480" vertical-scroll-proportion="0.0" vertical-offset="2969" max-vertical-offset="6205">
           <folding />
         </state>
       </provider>
@@ -464,9 +443,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fluent-cql.js">
+    <entry file="file://$PROJECT_DIR$/test/select.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="340" column="3" selection-start="11461" selection-end="11461" vertical-scroll-proportion="0.26597583" vertical-offset="5626" max-vertical-offset="6205">
+        <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/from.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/where.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="40" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1989">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fcql.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="17" selection-end="17" vertical-scroll-proportion="0.058721934" vertical-offset="0" max-vertical-offset="579">
           <folding />
         </state>
       </provider>

@@ -162,7 +162,7 @@ function FluentCql() {
             keyValuePairs,
             function (keyValuePair) {
                 if (this.err) {
-                    return;
+                    return this;
                 }
                 var key = keyValuePair[0],
                     value = keyValuePair[1];
@@ -211,7 +211,7 @@ function FluentCql() {
                     var clause = [key, conditionOps[operators[0][0]], JSON.stringify(operators[0][1])];
                     if (operators.length === 2) {
                         if (typeof operators[0][1] !== typeof operators[1][1]) {
-                            this.setError('comparing values of different types for key ' + key + ' in WHERE')
+                            this.setError('comparing values of different types for key ' + key + ' in WHERE');
                         }
 
                         clause.push('AND');
