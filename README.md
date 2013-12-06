@@ -27,9 +27,9 @@ var stringQuery = fcql.select('key, email, last_name')
 results the same as above.
 
 ## For whom?
-The library validates given parameters so that you do less mistakes and code faster.
-The library helpful for CQL newbies. JSDoc supported functions will show you available options.
-The library allows partial query reuse (DRY). You can store 'SELECT...FROM...' and then add 'WHERE' as new query needed.
+* The library validates given parameters so that you do less mistakes and code faster.
+* The library helpful for CQL newbies. JSDoc supported functions will show you available options.
+* The library allows partial query reuse (DRY). You can store 'SELECT...FROM...' and then add 'WHERE' as new query needed.
 
 ## Usage
 ```js
