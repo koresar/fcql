@@ -85,6 +85,19 @@ function FluentCql() {
     };
 
     /**
+     * Appends 'USE keyspace' to the query.
+     * @param {string} keyspace - the keyspace to use.
+     * @returns {FluentCql}
+     */
+    this.use = function use(keyspace) {
+        if (this.err) {
+            return this;
+        }
+
+        return this.concat_('USE')._validateKeyspaceName(keyspace).concat_(keyspace);
+    };
+
+    /**
      * Appends 'SELECT ... ' to the query.
      * @param {(...string|string[])} columns - columns to retrieve.
      * @returns {FluentCql}
@@ -321,12 +334,19 @@ function FluentCql() {
         }
         return this;
     };
+
+    this._validateKeyspaceName = function _validateKeyspaceName(name) {
+        if (!name || !_.isString(name) || _s.isBlank(name) || _s.include(name, ' ')) {
+            return this.setError('keyspace name must be valid in USE');
+        }
+        return this;
+    };
 }
 
 function cqlQueries() {
     var obj = {};
     // This list of FluentCql class functions will be reused and delegated to.
-    _.each(['select', 'selectAll', 'create'],
+    _.each(['use', 'select', 'selectAll', 'create'],
         function (name) {
             obj[name] = function () {
                 // Create new instance of the object each time.
