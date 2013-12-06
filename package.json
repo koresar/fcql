@@ -1,42 +1,43 @@
 {
-  "author": "Vasyl Boroviak <kore.sar@gmail.com>",
-  "contributors" :[
-  ],
-  "name": "fcql",
-  "version": "0.0.1",
-  "description": "Fluent syntax for Apache Cassandra CQL",
-  "keywords": [
-    "cassandra",
-    "cql",
-    "cql3",
-    "fluent",
-	"node"
-  ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/koresar/fcql/blob/master/LICENSE"
+    "author": "Vasyl Boroviak <kore.sar@gmail.com>",
+    "contributors": [],
+    "name": "fcql",
+    "version": "0.0.1",
+    "description": "Fluent syntax for Apache Cassandra CQL",
+    "keywords": [
+        "cassandra",
+        "cql",
+        "cql3",
+        "fluent",
+        "node"
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/koresar/fcql/blob/master/LICENSE"
+        }
+    ],
+    "dependencies": {
+        "stampit": ">= 0.6.1",
+        "underscore": ">= 1.5.2",
+        "underscore.string": ">= 2.3.3",
+        "mocha": ">= 1.15.1",
+        "must": ">= 0.10.0"
+    },
+    "devDependencies": {
+        "mocha": ">= 1.14.0",
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/koresar/fcql.git"
+    },
+    "bugs": {
+        "url": "https://github.com/koresar/fcql/issues"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "test": "mocha test -R spec"
     }
-  ],
-  "dependencies": {
-    "stampit": ">= 0.6.1",
-    "underscore": ">= 1.5.2",
-    "underscore.string": ">= 2.3.3",
-	"mocha": ">= 1.15.1",
-	"must": ">= 0.10.0"
-  },
-  "devDependencies": {
-    "mocha": ">= 1.14.0"
-  },
-  "repository": { 
-    "type" : "git", 
-    "url" : "https://github.com/koresar/fcql.git"
-  },
-  "bugs": { 
-    "url" : "https://github.com/koresar/fcql/issues"
-  },
-  "engines": {"node" : ">=0.10.0"},
-  "scripts": {
-    "test": "mocha test -R spec"
-  }
 }

@@ -88,4 +88,89 @@ describe('create', function () {
             demand(_s.endsWith(query.build(), ';'));
         });
     });
+
+
+    describe('keyspace', function () {
+        beforeEach(function () {
+            query = fcql.create();
+        });
+
+        it('should write CREATE KEYSPACE', function () {
+            query.keyspace('keyspaceName');
+
+            query.build().must.include('CREATE KEYSPACE');
+        });
+
+        it('should require keyspace name', function () {
+            query.keyspace(' ');
+
+            query.err.must.exist();
+            query.err.must.include('keyspace name');
+        });
+
+        it('should not require replication', function () {
+            query.keyspace('keyspaceName');
+
+            query.build().must.include('replication');
+            query.build().must.include('class');
+            query.build().must.include('replication_factor');
+        });
+
+        it('should allow empty replication object', function () {
+            query.keyspace('keyspaceName', {});
+
+            query.build().must.include('replication');
+            query.build().must.include('class');
+            query.build().must.include('replication_factor');
+        });
+
+        it('should allow partial replication object', function () {
+            query.keyspace('keyspaceName', {replication_factor: 1});
+
+            query.build().must.include('replication');
+            query.build().must.include('class');
+            query.build().must.include('replication_factor');
+        });
+
+        it('should write durable_writes if given', function () {
+            query.keyspace('keyspaceName', null, true);
+
+            query.build().must.include('durable_writes');
+        });
+
+        it('should not allow negative replication_factor', function () {
+            query.keyspace('keyspaceName', {replication_factor: -2});
+
+            query.err.must.exist();
+            query.err.must.include('replication_factor');
+        });
+
+        it('should not allow empty replication_factor', function () {
+            query.keyspace('keyspaceName', {replication_factor: ''});
+
+            query.err.must.exist();
+            query.err.must.include('replication_factor');
+        });
+
+        it('should not allow strange replication_factor', function () {
+            query.keyspace('keyspaceName', {replication_factor: []});
+
+            query.err.must.exist();
+            query.err.must.include('replication_factor');
+        });
+
+        it('should not allow unknown replication options', function () {
+            query.keyspace('keyspaceName', {'class': 'NonExistent'});
+
+            query.err.must.exist();
+            query.err.must.include('replication strategy');
+        });
+
+        it('should put semicolon at the end', function () {
+            query.keyspace('keyspaceName');
+
+            demand(query.err).be.undefined();
+            demand(_s.endsWith(query.build(), ';'));
+        });
+    });
 });

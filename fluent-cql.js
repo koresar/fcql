@@ -17,6 +17,18 @@ function cqlTypes() {
     return _.object(types, types);
 }
 
+function cqlReplicationStrategies() {
+    var types = ['SimpleStrategy', 'NetworkTopologyStrategy', 'OldNetworkTopologyStrategy'];
+    var obj = _.object(types, types);
+    obj.Strategy = {
+        Simple: 'SimpleStrategy',
+        NetworkTopology: 'NetworkTopologyStrategy',
+        OldNetworkTopology: 'OldNetworkTopologyStrategy'
+    };
+    obj.ReplicationStrategy = obj.Strategy;
+    return obj;
+}
+
 /**
  * Fluent syntax for Cassandra CQL.
  * @constructor
@@ -94,7 +106,7 @@ function FluentCql() {
             return this;
         }
 
-        return this.concat_('USE')._validateKeyspaceName(keyspace).concat_(keyspace);
+        return this.concat_('USE')._validateKeyspaceName(keyspace, 'USE').concat_(keyspace);
     };
 
     /**
@@ -215,8 +227,7 @@ function FluentCql() {
                             LE: '<='
                         };
 
-                    if (operators.length < 1 || operators.length > 2 ||
-                        !_.contains(_.keys(conditionOps), _s.capitalize(operators[0][0])) ||
+                    if (operators.length < 1 || operators.length > 2 || !_.contains(_.keys(conditionOps), _s.capitalize(operators[0][0])) ||
                         (operators.length === 2 && !_.contains(_.keys(conditionOps), _s.capitalize(operators[1][0])))) {
                         return this.setError('there must be 1 or 2 relational operator (EQ,GT,LT,LE,GE) for key ' + key + ' in WHERE');
                     }
@@ -253,6 +264,88 @@ function FluentCql() {
      */
     this.create = function create() {
         return this.concat_('CREATE');
+    };
+
+    /**
+     * Appends keyspace description 'KEYSPACE name WITH ...' to the query.
+     * @param {string} ks - keyspace name.
+     * @param {object} [replication='{'class': 'SimpleStrategy', 'replication_factor': '3'}'] - replication strategy options.
+     * See {@link http://cassandra.apache.org/doc/cql3/CQL.html#createKeyspaceStmt}
+     * @param {bool} [durableWrites=] - durable writes boolean. Uses CQL default 'true' if not present.
+     * See {@link http://cassandra.apache.org/doc/cql3/CQL.html#createKeyspaceStmt}
+     * @returns {FluentCql}
+     */
+    this.keyspace = function keyspace(ks, replication, durableWrites) {
+        if (this.err) {
+            return this;
+        }
+
+        return this.concat_('KEYSPACE')._keyspace(ks, replication, durableWrites);
+    };
+
+    /**
+     * Appends keyspace description 'KEYSPACE IN NOT EXISTS name WITH ...' to the query.
+     * @param {string} ks - keyspace name.
+     * @param {object} [replication='{'class': 'SimpleStrategy', 'replication_factor': '3'}'] - replication strategy options.
+     * See {@link http://cassandra.apache.org/doc/cql3/CQL.html#createKeyspaceStmt}
+     * @param {bool} [durableWrites=] - durable writes boolean. CQL defaults to 'true' if not present.
+     * See {@link http://cassandra.apache.org/doc/cql3/CQL.html#createKeyspaceStmt}
+     * @returns {FluentCql}
+     */
+    this.keyspaceIfNotExists = function keyspaceIfNotExists(ks, replication, durableWrites) {
+        if (this.err) {
+            return this;
+        }
+
+        return this.concat_('KEYSPACE').concat_('IF NOT EXISTS')._keyspace(ks, replication, durableWrites);
+    };
+
+    this._keyspace = function _keyspace(ks, replication, durableWrites) {
+        return this._validateKeyspaceName(ks, 'KEYSPACE').concat_(ks).concat(this._keyspaceOptions(replication, durableWrites));
+    };
+
+    this._keyspaceOptions = function _keyspaceOptions(replication, durableWrites) {
+        if (this.err) {
+            return this;
+        }
+
+        this.concat_('WITH').concat_('replication =');
+
+        if (!replication || _.isEmpty(replication)) {
+            replication = this._defaultReplicationOptions();
+        }
+        else {
+            if (!replication['class']) {
+                replication['class'] = this._defaultReplicationOptions()['class'];
+            }
+            else if (!_.has(cqlReplicationStrategies().Strategy, replication['class'])) {
+                return this.setError('unknown replication strategy class ' + replication['class'] + ' in KEYSPACE');
+            }
+            if (_.isUndefined(replication.replication_factor)) {
+                replication.replication_factor = this._defaultReplicationOptions().replication_factor;
+            }
+            else {
+                var factor = replication.replication_factor;
+                if (_.isString(factor)) {
+                    factor = _s.toNumber(replication.replication_factor);
+                }
+
+                if (_.isNaN(factor) || !_.isNumber(factor) || factor <= 0) {
+                    return this.setError('replication_factor must be positive int in KEYSPACE');
+                }
+            }
+        }
+
+        this.concat_(JSON.stringify(replication));
+        if (!_.isUndefined(durableWrites)) {
+            this.concat('AND').concat_('durable_writes =').concat_(durableWrites.toString());
+        }
+
+        return this;
+    };
+
+    this._defaultReplicationOptions = function _defaultReplicationOptions() {
+        return {'class': 'SimpleStrategy', 'replication_factor': '3'};
     };
 
     /**
@@ -335,9 +428,9 @@ function FluentCql() {
         return this;
     };
 
-    this._validateKeyspaceName = function _validateKeyspaceName(name) {
+    this._validateKeyspaceName = function _validateKeyspaceName(name, disposition) {
         if (!name || !_.isString(name) || _s.isBlank(name) || _s.include(name, ' ')) {
-            return this.setError('keyspace name must be valid in USE');
+            return this.setError('keyspace name must be valid in ' + disposition);
         }
         return this;
     };
@@ -377,4 +470,4 @@ function cqlQueries() {
  * @enum {string} varchar -     CQL 'varchar' type.
  * @enum {string} varint -      CQL 'varint' type.
  */
-module.exports = stampit().state(cqlQueries()).state(cqlTypes()).create();
+module.exports = stampit().state(cqlQueries()).state(cqlTypes()).state(cqlReplicationStrategies()).create();
