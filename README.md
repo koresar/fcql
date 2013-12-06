@@ -5,6 +5,8 @@ Allows fluent syntax for Cassandra Query Language (cql). Basically it creates CQ
 
 ***WARNING! Current version is not ready for production yet!***
 
+**NOTE! Only [CQL3](http://cassandra.apache.org/doc/cql3/CQL.html#createKeyspaceStmt) is supported.**
+
 Example:
 ```js
 var stringQuery = fcql.select(['key', 'email', 'last_name'])
