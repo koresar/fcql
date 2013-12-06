@@ -33,7 +33,7 @@ describe('where', function () {
         query.where({});
 
         query.err.must.exist();
-        query.err.must.include('parameter');
+        query.err.must.include('property');
     });
 
     it('should write WHERE', function () {

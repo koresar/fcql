@@ -4,7 +4,6 @@ var demand = require('must');
 var _s = require('underscore.string');
 var fcql = require('../fluent-cql');
 
-
 describe('create if not exists', function () {
     var query;
     beforeEach(function () {

@@ -1,4 +1,10 @@
 'use strict';
+
+/**
+ * Fluent-CQL module converts your JS fluent syntax to CQL string query.
+ * @module fluent-cql
+ */
+
 var stampit = require('stampit');
 var _ = require('underscore');
 var _s = require('underscore.string');
@@ -16,6 +22,11 @@ function cqlTypes() {
  * @constructor
  */
 function FluentCql() {
+    // TODO: Make this not string but token collection so that actual string created on the build() call only.
+    /**
+     * This variable collects the query pieces.
+     * @type {string}
+     */
     var query = '';
 
     /**
@@ -34,22 +45,26 @@ function FluentCql() {
     };
 
     /**
-     * @param str
+     * Marks this object as malformed, sets the error message. As the result no any further object building possible.
+     * @param {string} str -
      * @returns {FluentCql}
      * @private
      */
     this.setError = function setError(str) {
+        // TODO: DRY this if
+        if (this.err) {
+            return this;
+        }
         this.err = _s.surround(str, ' (!) ');
         return this;
     };
 
     /**
-     * Add the given string to the end of the query.
-     * @param str
+     * Appends the given string to the end of the query.
+     * @param {string} str - string to append.
      * @returns {FluentCql}
      */
     this.concat = function concat(str) {
-        // TODO: DRY this if
         if (this.err) {
             return this;
         }
@@ -58,8 +73,8 @@ function FluentCql() {
     };
 
     /**
-     * Add the given string and a trailing space to the end of the query.
-     * @param str
+     * Appends the given string and a trailing space to the end of the query.
+     * @param {string} str - string to append.
      * @returns {FluentCql}
      */
     this.concat_ = function concat_(str) {
@@ -70,9 +85,11 @@ function FluentCql() {
     };
 
     /**
+     * Appends 'SELECT ... ' to the query.
+     * @param {(...string|string[])} columns - columns to retrieve.
      * @returns {FluentCql}
      */
-    this.select = function select() {
+    this.select = function select(columns) {
         if (this.err) {
             return this;
         }
@@ -94,6 +111,7 @@ function FluentCql() {
     };
 
     /**
+     * Appends 'SELECT * ' to the query.
      * @returns {FluentCql}
      */
     this.selectAll = function selectAll() {
@@ -101,7 +119,8 @@ function FluentCql() {
     };
 
     /**
-     * @param tableName
+     * Appends 'FROM table_name ' to the query.
+     * @param {string} tableName - the table to read data from.
      * @returns {FluentCql}
      */
     this.from = function from(tableName) {
@@ -113,7 +132,8 @@ function FluentCql() {
     };
 
     /**
-     * @param params
+     * Appends 'WHERE ...' clause to the query.
+     * @param {(object|string)} params - a fluent-object 'where' clause or a string.
      * @returns {FluentCql}
      */
     this.where = function where(params) {
@@ -133,7 +153,7 @@ function FluentCql() {
 
         var keyValuePairs = _.pairs(params);
         if (keyValuePairs.length === 0) {
-            return this.setError('parameter(s) missing in WHERE');
+            return this.setError('object property(-ies) missing in WHERE');
         }
 
         this.concat_('WHERE');
@@ -214,14 +234,30 @@ function FluentCql() {
         return this.concat_(clauses.join(' AND '));
     };
 
+    /**
+     * Appends 'CREATE ' to the query.
+     * @returns {FluentCql}
+     */
     this.create = function create() {
         return this.concat_('CREATE');
     };
 
+    /**
+     * Appends table description 'TABLE name (key type, ...)' to the query.
+     * @param {(string)} name - the table name.
+     * @param {(object|string)} columns - a fluent-object clause describing table columns or a string.
+     * @returns {FluentCql}
+     */
     this.table = function table(name, columns) {
         return this.concat_('TABLE')._table(name, columns);
     };
 
+    /**
+     * Appends table description 'TABLE IF NOT EXISTS name (key type, ...)' to the query.
+     * @param {(string)} name - the table name.
+     * @param {(object|string)} columns - a fluent-object clause describing table columns or a string.
+     * @returns {FluentCql}
+     */
     this.tableIfNotExists = function tableIfNotExists(name, columns) {
         return this.concat_('TABLE').concat_('IF NOT EXISTS')._table(name, columns);
     };
@@ -302,70 +338,23 @@ function cqlQueries() {
     return obj;
 }
 
-var fcql = stampit().state(cqlQueries()).state(cqlTypes()).create();
-module.exports = fcql;
-//
-//console.log('=== VALID ===');
-//
-//var test = fcql.select('*').from('somewhere');
-//console.log(test.build());
-//
-//test = new FluentCql();
-//test.selectAll().from('tbl').where({a: "a"});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc', 'blya').from('sometable').where({a: {GT: 'str123'}, b: [321, 123], c: {LT: 1.0}});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc').from('sometable').where({a: 'eq str', b: 13.1, c: new Date()});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc').from('sometable').where({a: {GE: 123}, b: {GE: new Date(), LT: new Date()}});
-//console.log(test.build());
-//
-//
-//test = fcql.create().tableIfNotExists('tblName', {
-//    name: 'text',
-//    eventDate: 'text',
-//    reader: 'text',
-//    antenna: fcql.int,
-//    description: 'text',
-//    PRIMARY_KEY: [
-//        ['name', 'eventDate'],
-//        'reader',
-//        'antenna'
-//    ]
-//});
-//console.log(test.build());
-//
-//console.log('=== FAULTY ===');
-//
-//test = new FluentCql();
-//test.select('pzdc').from('sometable').where({a: []});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc').from('sometable').where({a: {ELSE: "1.0"}});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc').from('sometable').where({a: {GE: 123}, b: undefined, c: {LE: "1.0"}});
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select().from('sometable');
-//console.log(test.build());
-//
-//
-//test = new FluentCql();
-//test.select('pzdc').from();
-//console.log(test.build());
+/**
+ * @readonly
+ * @enum {string} ascii -       CQL 'ascii' type.
+ * @enum {string} bigint -      CQL 'bigint' type.
+ * @enum {string} blob -        CQL 'blob' type.
+ * @enum {string} boolean -     CQL 'boolean' type.
+ * @enum {string} counter -     CQL 'counter' type.
+ * @enum {string} decimal -     CQL 'decimal' type.
+ * @enum {string} double -      CQL 'double' type.
+ * @enum {string} float -       CQL 'float' type.
+ * @enum {string} inet -        CQL 'inet' type.
+ * @enum {string} int -         CQL 'int' type.
+ * @enum {string} text -        CQL 'text' type.
+ * @enum {string} timestamp -   CQL 'timestamp' type.
+ * @enum {string} timeuuidl -   CQL 'timeuuidl' type.
+ * @enum {string} uuid -        CQL 'uuid' type.
+ * @enum {string} varchar -     CQL 'varchar' type.
+ * @enum {string} varint -      CQL 'varint' type.
+ */
+module.exports = stampit().state(cqlQueries()).state(cqlTypes()).create();
