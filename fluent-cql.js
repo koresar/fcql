@@ -18,13 +18,15 @@ function cqlTypes() {
 }
 
 function cqlReplicationStrategies() {
-    var types = ['SimpleStrategy', 'NetworkTopologyStrategy', 'OldNetworkTopologyStrategy'];
-    var obj = _.object(types, types);
-    obj.Strategy = {
-        Simple: 'SimpleStrategy',
-        NetworkTopology: 'NetworkTopologyStrategy',
-        OldNetworkTopology: 'OldNetworkTopologyStrategy'
-    };
+    var strategies = ['SimpleStrategy', 'NetworkTopologyStrategy', 'OldNetworkTopologyStrategy'];
+    var shortNamedStrategies = _.map(strategies, function (strategy) {
+        return _s.strLeftBack(strategy, 'Strategy');
+    });
+    var obj = _.object(strategies, strategies);
+    obj.Strategy = stampit()
+        .state(_.object(strategies, strategies))
+        .state(_.object(shortNamedStrategies, strategies))
+        .create();
     obj.ReplicationStrategy = obj.Strategy;
     return obj;
 }

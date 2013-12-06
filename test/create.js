@@ -138,6 +138,12 @@ describe('create', function () {
             query.build().must.include('durable_writes');
         });
 
+        it('should be able to use namespaced strategy class', function () {
+            query.keyspace('keyspaceName', {'class': fcql.Strategy.NetworkTopology});
+
+            query.build().must.include('NetworkTopologyStrategy');
+        });
+
         it('should not allow negative replication_factor', function () {
             query.keyspace('keyspaceName', {replication_factor: -2});
 
