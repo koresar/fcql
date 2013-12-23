@@ -1,6 +1,6 @@
 'use strict';
 
-var fcql = require('../fluent-cql');
+var fcql = require('../index');
 
 describe('from', function () {
     var query;
@@ -9,15 +9,14 @@ describe('from', function () {
     });
 
     it('should demand table name', function () {
-        query.from();
+        var q = query.from();
 
-        query.err.must.exist();
-        query.err.must.include('table name');
+        q.build.bind(q).must.throw(/table name/);
     });
 
     it('should write FROM tableName', function () {
-        query.from('tableName');
+        var q = query.from('tableName');
 
-        query.build().must.include('FROM tableName');
+        q.build().must.include('FROM tableName');
     });
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-var fcql = require('../fluent-cql');
+var fcql = require('../index');
 
 describe('selectAll', function () {
     var query;
@@ -33,16 +33,14 @@ describe('select', function () {
     it('should demand parameters', function () {
         query = fcql.select();
 
-        query.err.must.exist();
-        query.err.must.include('argument');
+        query.build.bind(query).must.throw(/argument/);
     });
 
     it('should demand valid parameters', function () {
         query = fcql.select({a: 1});
 
-        query.err.must.exist();
-        query.err.must.include('argument');
-        query.err.must.include('string');
+        query.build.bind(query).must.throw(/argument/);
+        query.build.bind(query).must.throw(/string/);
     });
 
     it('should join over comma', function () {
@@ -60,7 +58,6 @@ describe('select', function () {
     it('should not accept empty array', function () {
         query = fcql.select([]);
 
-        query.err.must.exist();
-        query.err.must.include('argument');
+        query.build.bind(query).must.throw(/argument/);
     });
 });

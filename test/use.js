@@ -1,20 +1,20 @@
 'use strict';
 
-var fcql = require('../fluent-cql');
+var fcql = require('../index');
+var demand = require('must');
 
 describe('use', function () {
     var query;
 
     it('should demand keyspace name', function () {
-        query = fcql.use();
+        var q = fcql.use();
 
-        query.err.must.exist();
-        query.err.must.include('keyspace name');
+        q.build.bind(q).must.throw(/keyspace name/);
     });
 
     it('should write USE keyspace', function () {
-        query = fcql.use('keyspaceName');
+        var q = fcql.use('keyspaceName');
 
-        query.build().must.include('USE keyspaceName');
+        q.build().must.include('USE keyspaceName');
     });
 });

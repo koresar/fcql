@@ -3,7 +3,9 @@
     <words>
       <w>concat</w>
       <w>fcql</w>
+      <w>inet</w>
       <w>namespaced</w>
+      <w>proto</w>
       <w>stringify</w>
       <w>timeuuidl</w>
       <w>varint</w>

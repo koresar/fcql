@@ -1,6 +1,6 @@
 'use strict';
 
-var fcql = require('../fluent-cql');
+var fcql = require('../index');
 var _ = require('underscore');
 var demand = require('must');
 

@@ -2,7 +2,7 @@
 
 var demand = require('must');
 var _s = require('underscore.string');
-var fcql = require('../fluent-cql');
+var fcql = require('../index');
 
 describe('create if not exists', function () {
     var query;
@@ -11,9 +11,9 @@ describe('create if not exists', function () {
     });
 
     it('should write TABLE IF NOT EXISTS', function () {
-        query.tableIfNotExists('tableName', {a: 'int', PRIMARY_KEY: 'a'});
+        var q = query.tableIfNotExists('tableName', {a: 'int', PRIMARY_KEY: 'a'});
 
-        query.build().must.include('TABLE IF NOT EXISTS');
+        q.build().must.include('TABLE IF NOT EXISTS');
     });
 });
 
@@ -41,54 +41,49 @@ describe('create', function () {
         });
 
         it('should write CREATE TABLE', function () {
-            query.table('tableName', {a: 'int', PRIMARY_KEY: 'a'});
+            var q = query.table('tableName', {a: 'int', PRIMARY_KEY: 'a'});
 
-            query.build().must.include('CREATE TABLE');
+            q.build().must.include('CREATE TABLE');
         });
 
         it('should validate column types', function () {
-            query.table('tableName', {a: 'text', b: 'string', PRIMARY_KEY: ['a', 'b']});
+            var q = query.table('tableName', {a: 'text', b: 'string', PRIMARY_KEY: ['a', 'b']});
 
-            query.err.must.exist();
-            query.err.must.include('types');
+            q.build.bind(q).must.throw(/types/);
         });
 
         it('should require table name', function () {
-            query.table(' ');
+            var q = query.table(' ');
 
-            query.err.must.exist();
-            query.err.must.include('table name');
+            q.build.bind(q).must.throw(/table name/);
         });
 
         it('should require table columns', function () {
-            query.table('tableName', {});
+            var q = query.table('tableName', {});
 
-            query.err.must.exist();
-            query.err.must.include('columns');
+            q.build.bind(q).must.throw(/columns/);
         });
 
         it('should insist on PRIMARY_KEY', function () {
-            query.table('tableName', {a: 'timestamp'});
+            var q = query.table('tableName', {a: 'timestamp'});
 
-            query.err.must.exist();
-            query.err.must.include('PRIMARY_KEY');
+            q.build.bind(q).must.throw(/PRIMARY_KEY/);
         });
 
         it('should not allow unknown columns in PRIMARY_KEY', function () {
-            query.table('tableName', {a: 'float', PRIMARY_KEY: ['a', 'b']});
+            var q = query.table('tableName', {a: 'float', PRIMARY_KEY: ['a', 'b']});
 
-            query.err.must.exist();
-            query.err.must.include('PRIMARY_KEY');
+            q.build.bind(q).must.throw(/PRIMARY_KEY/);
         });
 
         it('should put semicolon at the end', function () {
-            query.table('tableName', {a: 'double', b: 'text', PRIMARY_KEY: ['a', 'b']});
+            var q = query.table('tableName', {a: 'double', b: 'text', PRIMARY_KEY: ['a', 'b']});
+            q.build();
 
-            demand(query.err).be.undefined();
-            demand(_s.endsWith(query.build(), ';'));
+            demand(q.err).be.undefined();
+            demand(_s.endsWith(q.build(), ';'));
         });
     });
-
 
     describe('keyspace', function () {
         beforeEach(function () {
@@ -96,87 +91,82 @@ describe('create', function () {
         });
 
         it('should write CREATE KEYSPACE', function () {
-            query.keyspace('keyspaceName');
+            var q = query.keyspace('keyspaceName');
 
-            query.build().must.include('CREATE KEYSPACE');
+            q.build().must.include('CREATE KEYSPACE');
         });
 
         it('should require keyspace name', function () {
-            query.keyspace(' ');
+            var q = query.keyspace(' ');
 
-            query.err.must.exist();
-            query.err.must.include('keyspace name');
+            q.build.bind(q).must.throw(/keyspace name/);
         });
 
         it('should not require replication', function () {
-            query.keyspace('keyspaceName');
+            var q = query.keyspace('keyspaceName');
 
-            query.build().must.include('replication');
-            query.build().must.include('class');
-            query.build().must.include('replication_factor');
+            q.build().must.include('replication');
+            q.build().must.include('class');
+            q.build().must.include('replication_factor');
         });
 
         it('should allow empty replication object', function () {
-            query.keyspace('keyspaceName', {});
+            var q = query.keyspace('keyspaceName', {});
 
-            query.build().must.include('replication');
-            query.build().must.include('class');
-            query.build().must.include('replication_factor');
+            q.build().must.include('replication');
+            q.build().must.include('class');
+            q.build().must.include('replication_factor');
         });
 
         it('should allow partial replication object', function () {
-            query.keyspace('keyspaceName', {replication_factor: 1});
+            var q = query.keyspace('keyspaceName', {replication_factor: 1});
 
-            query.build().must.include('replication');
-            query.build().must.include('class');
-            query.build().must.include('replication_factor');
+            q.build().must.include('replication');
+            q.build().must.include('class');
+            q.build().must.include('replication_factor');
         });
 
         it('should write durable_writes if given', function () {
-            query.keyspace('keyspaceName', null, true);
+            var q = query.keyspace('keyspaceName', null, true);
 
-            query.build().must.include('durable_writes');
+            q.build().must.include('durable_writes');
         });
 
         it('should be able to use namespaced strategy class', function () {
-            query.keyspace('keyspaceName', {'class': fcql.Strategy.NetworkTopology});
+            var q = query.keyspace('keyspaceName', {'class': fcql.Strategy.NetworkTopology});
 
-            query.build().must.include('NetworkTopologyStrategy');
+            q.build().must.include('NetworkTopologyStrategy');
         });
 
         it('should not allow negative replication_factor', function () {
-            query.keyspace('keyspaceName', {replication_factor: -2});
+            var q = query.keyspace('keyspaceName', {replication_factor: -2});
 
-            query.err.must.exist();
-            query.err.must.include('replication_factor');
+            q.build.bind(q).must.throw(/replication_factor/);
         });
 
         it('should not allow empty replication_factor', function () {
-            query.keyspace('keyspaceName', {replication_factor: ''});
+            var q = query.keyspace('keyspaceName', {replication_factor: ''});
 
-            query.err.must.exist();
-            query.err.must.include('replication_factor');
+            q.build.bind(q).must.throw(/replication_factor/);
         });
 
         it('should not allow strange replication_factor', function () {
-            query.keyspace('keyspaceName', {replication_factor: []});
+            var q = query.keyspace('keyspaceName', {replication_factor: []});
 
-            query.err.must.exist();
-            query.err.must.include('replication_factor');
+            q.build.bind(q).must.throw(/replication_factor/);
         });
 
         it('should not allow unknown replication options', function () {
-            query.keyspace('keyspaceName', {'class': 'NonExistent'});
+            var q = query.keyspace('keyspaceName', {'class': 'NonExistent'});
 
-            query.err.must.exist();
-            query.err.must.include('replication strategy');
+            q.build.bind(q).must.throw(/replication strategy/);
         });
 
         it('should put semicolon at the end', function () {
-            query.keyspace('keyspaceName');
+            var q = query.keyspace('keyspaceName');
 
-            demand(query.err).be.undefined();
-            demand(_s.endsWith(query.build(), ';'));
+            demand(q.err).be.undefined();
+            demand(_s.endsWith(q.build(), ';'));
         });
     });
 });
