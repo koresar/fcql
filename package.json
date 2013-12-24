@@ -1,5 +1,9 @@
 {
-    "author": "Vasyl Boroviak <kore.sar@gmail.com>",
+    "author": {
+        "name": "Vasyl Boroviak",
+        "email": "kore.sar@gmail.com",
+        "url": "http://google.com/+VasylBoroviak"
+    },
     "contributors": [],
     "name": "fcql",
     "version": "0.0.1",
@@ -25,7 +29,7 @@
         "must": ">= 0.10.0"
     },
     "devDependencies": {
-        "mocha": ">= 1.14.0",
+        "mocha": ">= 1.14.0"
     },
     "repository": {
         "type": "git",

@@ -22,11 +22,9 @@ var clausesFactory;
         build: builder()
     };
     _.each(clauses, function (clause) {
-        clausesProto[clause] = function () {
-            var newStructure = {};
-
+        clausesProto[clause] = function createClauseStructure() { // TODO: Rethink the naming
             // mix old properties into new structure
-            newStructure = stampit.extend({}, this.structure, newStructure);
+            var newStructure = _.extend({}, this.structure);
 
             // Add the new property to the structure
             newStructure[clause] = arguments.length === 0 ? undefined : [].slice.call(arguments);

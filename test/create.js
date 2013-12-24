@@ -64,23 +64,27 @@ describe('create', function () {
             q.build.bind(q).must.throw(/columns/);
         });
 
-        it('should insist on PRIMARY_KEY', function () {
+        it('should insist on PRIMARY KEY', function () {
             var q = query.table('tableName', {a: 'timestamp'});
 
-            q.build.bind(q).must.throw(/PRIMARY_KEY/);
+            q.build.bind(q).must.throw(/PRIMARY KEY/);
         });
 
-        it('should not allow unknown columns in PRIMARY_KEY', function () {
+        it('should not allow unknown columns in PRIMARY KEY', function () {
             var q = query.table('tableName', {a: 'float', PRIMARY_KEY: ['a', 'b']});
 
-            q.build.bind(q).must.throw(/PRIMARY_KEY/);
+            q.build.bind(q).must.throw(/PRIMARY KEY/);
+        });
+
+        it('should build correct PRIMARY KEY', function () {
+            var q = query.table('tableName', {a: 'double', b: 'text', PRIMARY_KEY: ['a', 'b']});
+
+            q.build().must.contain('PRIMARY KEY (a, b)');
         });
 
         it('should put semicolon at the end', function () {
             var q = query.table('tableName', {a: 'double', b: 'text', PRIMARY_KEY: ['a', 'b']});
-            q.build();
 
-            demand(q.err).be.undefined();
             demand(_s.endsWith(q.build(), ';'));
         });
     });
