@@ -24,12 +24,11 @@
     "dependencies": {
         "stampit": ">= 0.6.1",
         "underscore": ">= 1.5.2",
-        "underscore.string": ">= 2.3.3",
-        "mocha": ">= 1.15.1",
-        "must": ">= 0.10.0"
+        "underscore.string": ">= 2.3.3"
     },
     "devDependencies": {
-        "mocha": ">= 1.14.0"
+        "mocha": ">= 1.15.1",
+        "must": ">= 0.10.0"		
     },
     "repository": {
         "type": "git",
