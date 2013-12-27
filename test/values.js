@@ -41,4 +41,10 @@ describe('values', function () {
 
         q.build().must.include('INSERT INTO bla (column1) VALUES (1, "two") IF NOT EXISTS');
     });
+
+    it('should accept object as values', function () {
+        var q = query.values({ doesNotMatter2: 1, doesNoMatter1: 'two' });
+
+        q.build().must.include('INSERT INTO bla (column1) VALUES (1, "two")');
+    });
 });

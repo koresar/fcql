@@ -48,7 +48,7 @@ describe('insert', function () {
         q.build.bind(q).must.throw(/argument/);
     });
 
-    it('should not accept many string arguments', function () {
+    it('should accept many string arguments', function () {
         var q = query.insertInto('tableName', 'one', 'two');
 
         q.build().must.include('INSERT INTO tableName (one, two)');
