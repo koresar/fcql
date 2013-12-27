@@ -98,7 +98,7 @@ describe('create', function () {
             var q = query.keyspace('keyspaceName');
 
             q.build().must.be(
-                'CREATE KEYSPACE keyspaceName WITH replication = {"class":"SimpleStrategy","replication_factor":"3"};');
+                "CREATE KEYSPACE keyspaceName WITH replication = {'class':'SimpleStrategy','replication_factor':'3'};");
         });
 
         it('should require keyspace name', function () {
