@@ -39,7 +39,7 @@ describe('select', function () {
     it('should demand valid parameters', function () {
         query = fcql.select({a: 1});
 
-        query.build.bind(query).must.throw(/argument/);
+        query.build.bind(query).must.throw(/column name/);
         query.build.bind(query).must.throw(/string/);
     });
 

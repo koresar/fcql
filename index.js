@@ -14,7 +14,7 @@ var constants = require('./lib/const');
 var clausesFactory;
 (function createClausesFactory() {
     var clauses = [ 'use', 'create', 'table', 'tableIfNotExists', 'keyspace', 'keyspaceIfNotExists',
-        'select', 'selectAll', 'from', 'where', 'with' ];
+        'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists' ];
     var clausesProto = {
         query: function query(structure) {
             return clausesFactory.state({structure: structure}).create();
