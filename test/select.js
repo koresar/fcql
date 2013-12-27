@@ -3,61 +3,62 @@
 var fcql = require('../index');
 
 describe('selectAll', function () {
-    var query;
+    var query = fcql;
+    var q;
     beforeEach(function () {
-        query = fcql.selectAll();
+        q = query.selectAll();
     });
 
     it('should create new instance', function () {
         var oldMsg = "instance 1";
         query.err = oldMsg;
-        query = fcql.selectAll();
+        var q = query.selectAll();
 
-        oldMsg.must.not.equal(query.arr);
+        oldMsg.must.not.equal(q.err);
     });
 
     it('should write SELECT *', function () {
-        query.build().must.include('SELECT *');
+        q.build().must.include('SELECT *');
     });
 });
 
 describe('select', function () {
-    var query;
+    var query = fcql;
 
     it('should write SELECT tableName', function () {
-        query = fcql.select('bla');
+        var q = query.select('bla');
 
-        query.build().must.include('SELECT bla');
+        q.build().must.include('SELECT bla');
     });
 
     it('should demand parameters', function () {
-        query = fcql.select();
+        var q = query.select();
 
-        query.build.bind(query).must.throw(/argument/);
+        q.build.bind(q).must.throw(/argument/);
     });
 
     it('should demand valid parameters', function () {
-        query = fcql.select({a: 1});
+        var q = query.select({a: 1});
 
-        query.build.bind(query).must.throw(/column name/);
-        query.build.bind(query).must.throw(/string/);
+        q.build.bind(q).must.throw(/column name/);
+        q.build.bind(q).must.throw(/string/);
     });
 
     it('should join over comma', function () {
-        query = fcql.select('one', 'two');
+        var q = query.select('one', 'two');
 
-        query.build().must.include('SELECT one, two');
+        q.build().must.include('SELECT one, two');
     });
 
     it('should accept array', function () {
-        query = fcql.select(['one', 'two']);
+        var q = query.select(['one', 'two']);
 
-        query.build().must.include('SELECT one, two');
+        q.build().must.include('SELECT one, two');
     });
 
     it('should not accept empty array', function () {
-        query = fcql.select([]);
+        var q = query.select([]);
 
-        query.build.bind(query).must.throw(/argument/);
+        q.build.bind(q).must.throw(/argument/);
     });
 });

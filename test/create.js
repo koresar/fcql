@@ -26,9 +26,9 @@ describe('create', function () {
     it('should create new instance', function () {
         var oldMsg = "instance 1";
         query.err = oldMsg;
-        query = fcql.create();
+        var q = query.create();
 
-        oldMsg.must.not.equal(query.err);
+        oldMsg.must.not.equal(q.err);
     });
 
     it('should write CREATE', function () {
