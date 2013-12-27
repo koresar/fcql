@@ -94,10 +94,11 @@ describe('create', function () {
             query = fcql.create();
         });
 
-        it('should write CREATE KEYSPACE', function () {
+        it('should write CREATE KEYSPACE ...', function () {
             var q = query.keyspace('keyspaceName');
 
-            q.build().must.include('CREATE KEYSPACE');
+            q.build().must.be(
+                'CREATE KEYSPACE keyspaceName WITH replication = {"class":"SimpleStrategy","replication_factor":"3"};');
         });
 
         it('should require keyspace name', function () {
