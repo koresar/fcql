@@ -14,7 +14,7 @@ var constants = require('./lib/const');
 var clausesFactory;
 (function createClausesFactory() {
     var clauses = [ 'use', 'create', 'table', 'tableIfNotExists', 'keyspace', 'keyspaceIfNotExists',
-        'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists' ];
+        'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists', 'insertIntoValues' ];
     var clausesProto = {
         query: function query(structure) {
             return clausesFactory.state({structure: structure}).create();
@@ -22,20 +22,17 @@ var clausesFactory;
         build: builder()
     };
     _.each(clauses, function (clause) {
-        clausesProto[clause] = function createClauseStructure() { // TODO: Rethink the naming
-            // mix old properties into new structure
-            var newStructure = _.extend({}, this.structure);
+            clausesProto[clause] = function createClauseStructure() { // TODO: Rethink the naming
+                // mix old properties into new structure
+                var newStructure = _.extend({}, this.structure);
 
-            // Add the new property to the structure
-            newStructure[clause] = arguments.length === 0 ? undefined : [].slice.call(arguments);
+                // Add the new property to the structure
+                newStructure[clause] = arguments.length === 0 ? undefined : [].slice.call(arguments);
 
-            return stampit.compose(
-                    clausesFactory, // default methods
-                    stampit().state({structure: newStructure})) // new data (copy of old, but including the new prop)
-                .create();
-        };
-    },
-    this);
+                return clausesFactory.create({structure: newStructure});
+            };
+        },
+        this);
     clausesFactory = stampit(clausesProto);
 }());
 
@@ -58,7 +55,4 @@ var clausesFactory;
  * @prop {string} varchar -     CQL 'varchar' type.
  * @prop {string} varint -      CQL 'varint' type.
  */
-module.exports = stampit.compose(
-        clausesFactory,
-        stampit().state(constants.cqlTypes()).state(constants.cqlReplicationStrategies()))
-    .create();
+module.exports = clausesFactory.state(constants.cqlTypes()).state(constants.cqlReplicationStrategies()).create();
