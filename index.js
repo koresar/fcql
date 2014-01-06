@@ -14,7 +14,8 @@ var constants = require('./lib/const');
 var clausesFactory;
 (function createClausesFactory() {
     var clauses = [ 'use', 'create', 'table', 'tableIfNotExists', 'keyspace', 'keyspaceIfNotExists',
-        'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists', 'insertIntoValues' ];
+        'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists', 'insertIntoValues',
+        'using' ];
     var clausesProto = {
         query: function query(structure) {
             return clausesFactory.state({structure: structure}).create();
@@ -55,4 +56,8 @@ var clausesFactory;
  * @prop {string} varchar -     CQL 'varchar' type.
  * @prop {string} varint -      CQL 'varint' type.
  */
-module.exports = clausesFactory.state(constants.cqlTypes()).state(constants.cqlReplicationStrategies()).create();
+module.exports = clausesFactory
+    .state(constants.cqlTypes())
+    .state(constants.cqlReplicationStrategies())
+    .state(constants.consistencyValues())
+    .create();

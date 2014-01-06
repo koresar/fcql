@@ -161,10 +161,12 @@ describe('create', function () {
             q.build.bind(q).must.throw(/replication_factor/);
         });
 
-        it('should not allow unknown replication options', function () {
+        it('should allow unknown replication options', function () {
             var q = query.keyspace('keyspaceName', {'class': 'NonExistent'});
 
-            q.build.bind(q).must.throw(/replication strategy/);
+            q.build();
+
+            demand(q.err).be.undefined();
         });
 
         it('should put semicolon at the end', function () {

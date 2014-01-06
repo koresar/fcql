@@ -14,11 +14,7 @@ describe('fcql', function () {
     });
 
     it('should exist namespaced strategies ', function () {
-        demand(fcql.SimpleStrategy).must.exist();
         demand(fcql.Strategy).must.exist();
-        demand(fcql.Strategy.SimpleStrategy).must.exist();
         demand(fcql.Strategy.Simple).must.exist();
-        demand(fcql.ReplicationStrategy.SimpleStrategy).must.exist();
-        demand(fcql.ReplicationStrategy.Simple).must.exist();
     });
 });

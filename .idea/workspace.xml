@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6eeb38-3b77-47af-8222-8a9bb1a794fa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/const.js" afterPath="$PROJECT_DIR$/lib/const.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/create.js" afterPath="$PROJECT_DIR$/test/create.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fcql.js" afterPath="$PROJECT_DIR$/test/fcql.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/fluent-cql.js" afterPath="$PROJECT_DIR$/lib/fluent-cql.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/insert.js" afterPath="$PROJECT_DIR$/test/insert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/values.js" afterPath="$PROJECT_DIR$/test/values.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
     </list>
     <ignored path="fluent-cql.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +29,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fluent-cql.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="fluent-cql.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="63" selection-start="6142" selection-end="6142" vertical-scroll-proportion="0.0" vertical-offset="3031" max-vertical-offset="8806">
+            <state line="373" column="49" selection-start="13078" selection-end="13078" vertical-scroll-proportion="0.42206654" vertical-offset="6100" max-vertical-offset="9520">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="const.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/const.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="26" selection-start="949" selection-end="966" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fcql.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/fcql.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -40,6 +60,15 @@
         <entry file="file://$PROJECT_DIR$/test/values.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="47" column="76" selection-start="1409" selection-end="1409" vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="935">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="40" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1156">
               <folding />
             </state>
           </provider>
@@ -57,34 +86,16 @@
       <file leaf-file-name="create.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/create.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="0" selection-start="3890" selection-end="3890" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="3094">
+            <state line="91" column="4" selection-start="2611" selection-end="2611" vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="3128">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/select.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="21" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1173">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insert.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="insert.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/insert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.7721943" vertical-offset="542" max-vertical-offset="1139">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="const.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/const.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="6" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
+            <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1139">
               <folding />
             </state>
           </provider>
@@ -136,16 +147,16 @@
         <option value="$PROJECT_DIR$/test/from.js" />
         <option value="$PROJECT_DIR$/test/use.js" />
         <option value="$PROJECT_DIR$/test/where.js" />
-        <option value="$PROJECT_DIR$/lib/const.js" />
         <option value="$PROJECT_DIR$/test/select.js" />
         <option value="$PROJECT_DIR$/lib/builder.js" />
-        <option value="$PROJECT_DIR$/test/create.js" />
-        <option value="$PROJECT_DIR$/test/fcql.js" />
         <option value="$PROJECT_DIR$/test/insertIntoValue.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/lib/fluent-cql.js" />
         <option value="$PROJECT_DIR$/test/values.js" />
         <option value="$PROJECT_DIR$/test/insert.js" />
+        <option value="$PROJECT_DIR$/test/fcql.js" />
+        <option value="$PROJECT_DIR$/lib/fluent-cql.js" />
+        <option value="$PROJECT_DIR$/test/create.js" />
+        <option value="$PROJECT_DIR$/lib/const.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -426,18 +437,18 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32756758" sideWeight="0.4997367" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16692996" sideWeight="0.71190214" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28756756" sideWeight="0.6113744" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.5007899" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.49921012" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32756758" sideWeight="0.5002633" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264865" sideWeight="0.49921012" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.4997367" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756758" sideWeight="0.4997367" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -461,7 +472,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/fluent-cql.js</url>
-          <line>462</line>
+          <line>458</line>
           <option name="timeStamp" value="232" />
         </line-breakpoint>
       </breakpoints>
@@ -719,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/fcql.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="59" selection-start="536" selection-end="536" vertical-scroll-proportion="0.4028436" vertical-offset="0" max-vertical-offset="633">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/must/lib/assertions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="532" column="30" selection-start="12201" selection-end="12207" vertical-scroll-proportion="0.35314685" vertical-offset="8264" max-vertical-offset="16558">
@@ -756,20 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="48" selection-start="1514" selection-end="1514" vertical-scroll-proportion="1.1708543" vertical-offset="15" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/const.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="6" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/underscore/underscore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="775" column="4" selection-start="27530" selection-end="27530" vertical-scroll-proportion="-2.400335" vertical-offset="14557" max-vertical-offset="21743">
@@ -784,23 +774,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/create.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="0" selection-start="3890" selection-end="3890" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="3094">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="22" selection-start="74" selection-end="74" vertical-scroll-proportion="0.08931699" vertical-offset="0" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="63" selection-start="6142" selection-end="6142" vertical-scroll-proportion="0.0" vertical-offset="3031" max-vertical-offset="8806">
           <folding />
         </state>
       </provider>
@@ -814,7 +790,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/insert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.7721943" vertical-offset="542" max-vertical-offset="1139">
+        <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1139">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="4" selection-start="2611" selection-end="2611" vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="3128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fcql.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/const.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="26" selection-start="949" selection-end="966" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="40" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="373" column="49" selection-start="13078" selection-end="13078" vertical-scroll-proportion="0.42206654" vertical-offset="6100" max-vertical-offset="9520">
           <folding />
         </state>
       </provider>
