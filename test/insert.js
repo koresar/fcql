@@ -57,6 +57,6 @@ describe('insert', function () {
     it('should accept object as values', function () {
         var q = query.insertIntoValues('tableNameX', { column1: 1, column2: 'two' });
 
-        q.build().must.include('INSERT INTO tableNameX (column1, column2) VALUES (1, "two")');
+        q.build().must.include("INSERT INTO tableNameX (column1, column2) VALUES (1, 'two')");
     });
 });
