@@ -15,7 +15,7 @@ var clausesFactory;
 (function createClausesFactory() {
     var clauses = [ 'use', 'create', 'table', 'tableIfNotExists', 'keyspace', 'keyspaceIfNotExists',
         'select', 'selectAll', 'from', 'where', 'with', 'insertInto', 'values', 'ifNotExists', 'insertIntoValues',
-        'using' ];
+        'using', 'delete' ];
     var clausesProto = {
         query: function query(structure) {
             return clausesFactory.state({structure: structure}).create();
