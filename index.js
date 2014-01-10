@@ -37,11 +37,8 @@ var clausesFactory;
     clausesFactory = stampit(clausesProto);
 }());
 
-var exportObject = clausesFactory
-    .state(constants.cqlTypes())
-    .state(constants.cqlReplicationStrategies())
-    .state(constants.consistencyValues())
-    .create();
+var exportObject = clausesFactory.create();
+stampit.extend(exportObject, constants.cqlTypes(), constants.cqlReplicationStrategies(), constants.consistencyValues());
 Object.freeze(exportObject);
 Object.freeze(exportObject.strategy);
 Object.freeze(exportObject.consistency);
