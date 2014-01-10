@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6eeb38-3b77-47af-8222-8a9bb1a794fa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/delete.js" />
+      <change type="DELETED" beforePath="C:\code\fcql\lib\shared.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\code\fcql\lib\use.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\code\fcql\lib\util.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/const.js" afterPath="$PROJECT_DIR$/lib/const.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/create.js" afterPath="$PROJECT_DIR$/test/create.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fcql.js" afterPath="$PROJECT_DIR$/test/fcql.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/fluent-cql.js" afterPath="$PROJECT_DIR$/lib/fluent-cql.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/select.js" afterPath="$PROJECT_DIR$/test/select.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fluent-cql.iws" />
@@ -31,16 +37,16 @@
       <file leaf-file-name="fluent-cql.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="544" column="0" selection-start="18778" selection-end="18778" vertical-scroll-proportion="0.0" vertical-offset="9049" max-vertical-offset="9928">
+            <state line="62" column="56" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0" vertical-offset="843" max-vertical-offset="9928">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delete.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="delete.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/delete.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="29" selection-start="862" selection-end="862" vertical-scroll-proportion="0.82579565" vertical-offset="0" max-vertical-offset="663">
+            <state line="9" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
               <folding />
             </state>
           </provider>
@@ -58,11 +64,35 @@
       <file leaf-file-name="const.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/const.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="28" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0" vertical-offset="423" max-vertical-offset="1088">
-              <folding>
-                <marker date="1389061104302" expanded="true" signature="969:1323" placeholder="{...}" />
-                <marker date="1389061104302" expanded="true" signature="1005:1314" placeholder="{&quot;any&quot;: 'ANY'...}" />
-              </folding>
+            <state line="21" column="0" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="1122">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="3" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0" vertical-offset="537" max-vertical-offset="1241">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assertions.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node_modules/must/lib/assertions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="613" column="0" selection-start="15008" selection-end="15008" vertical-scroll-proportion="0.35343385" vertical-offset="10210" max-vertical-offset="17051">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builder.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/builder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,54 +100,7 @@
       <file leaf-file-name="fcql.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/fcql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="values.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/values.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="14" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="use.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/use.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insert.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/insert.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1139">
-              <folding>
-                <marker date="1388991806483" expanded="true" signature="1369:1506" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="from.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/from.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+            <state line="28" column="32" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
@@ -146,23 +129,23 @@
         <option value="$PROJECT_DIR$/test/error.js" />
         <option value="$PROJECT_DIR$/test/builder.js" />
         <option value="$PROJECT_DIR$/node_modules/must/index.js" />
-        <option value="$PROJECT_DIR$/node_modules/must/lib/assertions.js" />
         <option value="$PROJECT_DIR$/test/index.js" />
         <option value="$PROJECT_DIR$/test/from.js" />
         <option value="$PROJECT_DIR$/test/use.js" />
         <option value="$PROJECT_DIR$/test/where.js" />
-        <option value="$PROJECT_DIR$/test/select.js" />
         <option value="$PROJECT_DIR$/lib/builder.js" />
         <option value="$PROJECT_DIR$/test/insertIntoValue.js" />
         <option value="$PROJECT_DIR$/test/values.js" />
         <option value="$PROJECT_DIR$/test/insert.js" />
-        <option value="$PROJECT_DIR$/test/fcql.js" />
+        <option value="$PROJECT_DIR$/test/using.js" />
+        <option value="$PROJECT_DIR$/test/delete.js" />
+        <option value="$PROJECT_DIR$/test/select.js" />
+        <option value="$PROJECT_DIR$/lib/fluent-cql.js" />
+        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/test/create.js" />
         <option value="$PROJECT_DIR$/lib/const.js" />
-        <option value="$PROJECT_DIR$/test/using.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/lib/fluent-cql.js" />
-        <option value="$PROJECT_DIR$/test/delete.js" />
+        <option value="$PROJECT_DIR$/node_modules/must/lib/assertions.js" />
+        <option value="$PROJECT_DIR$/test/fcql.js" />
       </list>
     </option>
   </component>
@@ -323,6 +306,12 @@
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
+    <configuration default="false" name="fcql.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="fcql.js" working-dir="$PROJECT_DIR$/test">
+      <browser start="false" url="" with-js-debugger="false" />
+      <RunnerSettings RunnerId="NodeJS.debug" />
+      <ConfigurationWrapper RunnerId="NodeJS.debug" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -399,14 +388,16 @@
       <JdkChoice value="FROM_MODULE" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Test" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.Debug" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.from.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.fcql.js" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.from.js" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.fcql.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.from.js" />
       </list>
     </recent_temporary>
   </component>
@@ -436,19 +427,39 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756758" sideWeight="0.4997367" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16692996" sideWeight="0.71190214" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16850974" sideWeight="0.71190214" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28756756" sideWeight="0.6113744" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.5007899" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264865" sideWeight="0.5007899" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.49921012" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.4997367" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
@@ -475,34 +486,20 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/fcql.js</url>
+          <line>28</line>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="249" />
+      <option name="time" value="311" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/from.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="40" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="422" column="82" selection-start="15109" selection-end="15109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7956">
@@ -644,11 +641,6 @@
         <state line="6" column="12" selection-start="120" selection-end="120" vertical-scroll-proportion="0.16612378" vertical-offset="0" max-vertical-offset="697" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mocha/lib/runnable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="0" selection-start="4142" selection-end="4142" vertical-scroll-proportion="0.0" vertical-offset="3177" max-vertical-offset="3791" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/must/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="0" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.33224756" vertical-offset="765" max-vertical-offset="1496" />
@@ -669,13 +661,6 @@
     <entry file="file://$PROJECT_DIR$/test/where.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="15" selection-end="78" vertical-scroll-proportion="0.028475711" vertical-offset="68" max-vertical-offset="1819">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="21" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1173">
           <folding />
         </state>
       </provider>
@@ -701,32 +686,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.29541865" vertical-offset="0" max-vertical-offset="633">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/stampit/node_modules/mout/array.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="4" selection-start="618" selection-end="618" vertical-scroll-proportion="0.33333334" vertical-offset="78" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/must/lib/assertions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="532" column="30" selection-start="12201" selection-end="12207" vertical-scroll-proportion="0.35314685" vertical-offset="8264" max-vertical-offset="16558">
-          <folding>
-            <element signature="e#10492#11462#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
           <folding />
         </state>
       </provider>
@@ -770,45 +732,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="32" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1139">
           <folding>
-            <marker date="1388991806483" expanded="true" signature="1369:1506" placeholder="{...}" />
+            <marker date="1388991806483" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/fcql.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/create.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="30" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.36180905" vertical-offset="1433" max-vertical-offset="3128">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/values.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="14" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/const.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="28" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0" vertical-offset="423" max-vertical-offset="1088">
-          <folding>
-            <marker date="1389061104302" expanded="true" signature="969:1323" placeholder="{...}" />
-            <marker date="1389061104302" expanded="true" signature="1005:1314" placeholder="{&quot;any&quot;: 'ANY'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="24" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="1156">
           <folding />
         </state>
       </provider>
@@ -820,16 +751,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
+    <entry file="file://$PROJECT_DIR$/test/select.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="544" column="0" selection-start="18778" selection-end="18778" vertical-scroll-proportion="0.0" vertical-offset="9049" max-vertical-offset="9928">
+        <state line="6" column="28" selection-start="123" selection-end="123" vertical-scroll-proportion="0.17085427" vertical-offset="0" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mocha/lib/runnable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="0" selection-start="4142" selection-end="4142" vertical-scroll-proportion="0.0" vertical-offset="3158" max-vertical-offset="3791">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/delete.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="29" selection-start="862" selection-end="862" vertical-scroll-proportion="0.82579565" vertical-offset="0" max-vertical-offset="663">
+        <state line="9" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.18799368" vertical-offset="0" max-vertical-offset="633">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="3" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0" vertical-offset="537" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/stampit/node_modules/mout/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="4" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.33333334" vertical-offset="214" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/stampit/node_modules/mout/src/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="4" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.33333334" vertical-offset="214" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="720" selection-end="720" vertical-scroll-proportion="-2.5427136" vertical-offset="2011" max-vertical-offset="3128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/const.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/requirejs/bin/r.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20144" column="16" selection-start="741083" selection-end="741083" vertical-scroll-proportion="0.5068493" vertical-offset="342152" max-vertical-offset="443105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/fluent-cql.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="56" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0" vertical-offset="843" max-vertical-offset="9928">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fcql.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="32" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/must/lib/assertions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="613" column="0" selection-start="15008" selection-end="15008" vertical-scroll-proportion="0.35343385" vertical-offset="10210" max-vertical-offset="17051">
           <folding />
         </state>
       </provider>

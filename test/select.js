@@ -3,18 +3,9 @@
 var fcql = require('../index');
 
 describe('selectAll', function () {
-    var query = fcql;
     var q;
     beforeEach(function () {
-        q = query.selectAll();
-    });
-
-    it('should create new instance', function () {
-        var oldMsg = "instance 1";
-        query.err = oldMsg;
-        var q = query.selectAll();
-
-        oldMsg.must.not.equal(q.err);
+        q = fcql.selectAll();
     });
 
     it('should write SELECT *', function () {

@@ -138,7 +138,7 @@ describe('create', function () {
         });
 
         it('should be able to use namespaced strategy class', function () {
-            var q = query.keyspace('keyspaceName', {'class': fcql.Strategy.NetworkTopology});
+            var q = query.keyspace('keyspaceName', {'class': fcql.strategy.networkTopology});
 
             q.build().must.include('NetworkTopologyStrategy');
         });

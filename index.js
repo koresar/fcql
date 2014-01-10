@@ -37,6 +37,15 @@ var clausesFactory;
     clausesFactory = stampit(clausesProto);
 }());
 
+var exportObject = clausesFactory
+    .state(constants.cqlTypes())
+    .state(constants.cqlReplicationStrategies())
+    .state(constants.consistencyValues())
+    .create();
+Object.freeze(exportObject);
+Object.freeze(exportObject.strategy);
+Object.freeze(exportObject.consistency);
+
 /**
  * @readonly
  * @prop {string} ascii -       CQL 'ascii' type.
@@ -56,8 +65,4 @@ var clausesFactory;
  * @prop {string} varchar -     CQL 'varchar' type.
  * @prop {string} varint -      CQL 'varint' type.
  */
-module.exports = clausesFactory
-    .state(constants.cqlTypes())
-    .state(constants.cqlReplicationStrategies())
-    .state(constants.consistencyValues())
-    .create();
+module.exports = exportObject;

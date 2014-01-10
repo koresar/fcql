@@ -14,7 +14,24 @@ describe('fcql', function () {
     });
 
     it('should exist namespaced strategies ', function () {
-        demand(fcql.Strategy).must.exist();
-        demand(fcql.Strategy.Simple).must.exist();
+        demand(fcql.strategy).must.exist();
+        demand(fcql.strategy.Simple).must.exist();
+    });
+
+    it('should create new instances all the time', function () {
+        var obj1 = fcql.selectAll();
+        var obj2 = obj1.from('tableName');
+
+        obj1.must.not.equal(obj2);
+    });
+
+    it('should not allow constants change', function () {
+        function firstLevel() { fcql.int = "anything else"; }
+        function secondLevel() { fcql.strategy.simple = "anything else"; }
+        function thirdLevel() { fcql.consistency.one = "anything else"; }
+
+        firstLevel.must.throw(/read only/);
+        secondLevel.must.throw(/read only/);
+        thirdLevel.must.throw(/read only/);
     });
 });
