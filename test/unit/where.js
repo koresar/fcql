@@ -1,7 +1,7 @@
 'use strict';
 
 var demand = require('must');
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('where', function () {
     var query;
@@ -97,6 +97,6 @@ describe('where', function () {
     it('should produce IN having all values', function () {
         var q = query.where({a: [1, 2, 3]});
 
-        q.build().must.include('IN (1,2,3)');
+        q.build().must.include('IN (1, 2, 3)');
     });
 });

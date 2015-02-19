@@ -1,7 +1,7 @@
 'use strict';
 
 var demand = require('must');
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('delete', function () {
     it('should allow only string arguments', function () {

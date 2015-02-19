@@ -1,9 +1,7 @@
 'use strict';
 
-var stampit = require('stampit');
 var demand = require('must');
-var _s = require('underscore.string');
-var index = require('../index');
+var index = require('../../index');
 
 describe('index', function () {
     it('should collection function calls', function () {

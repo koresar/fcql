@@ -1,7 +1,7 @@
 'use strict';
 
 var demand = require('must');
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('using', function () {
     it('should not allow incorrect argument types', function () {

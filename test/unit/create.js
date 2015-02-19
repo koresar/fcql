@@ -2,7 +2,7 @@
 
 var demand = require('must');
 var _s = require('underscore.string');
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('create if not exists', function () {
     var query;

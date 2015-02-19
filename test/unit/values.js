@@ -1,7 +1,7 @@
 'use strict';
 
 var demand = require('must');
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('values', function () {
     var query = fcql.insertInto('bla', 'column1');

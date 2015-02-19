@@ -1,6 +1,6 @@
 'use strict';
 
-var fcql = require('../index');
+var fcql = require('../../index');
 
 describe('from', function () {
     var query;

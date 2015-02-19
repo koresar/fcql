@@ -1,6 +1,6 @@
 'use strict';
 
-var fcql = require('../index');
+var fcql = require('../../index');
 var demand = require('must');
 
 describe('use', function () {
