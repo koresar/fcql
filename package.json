@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "mocha": ">= 1.15.1",
-        "must": ">= 0.10.0"		
+        "must": ">= 0.10.0"
     },
     "repository": {
         "type": "git",
