@@ -33,7 +33,7 @@ results the same as above.
 
 ## Usage
 ```js
-var fcql = require('fluent-cql');
+var fcql = require('fcql');
 ```
 ### Creating tables
 ```js
