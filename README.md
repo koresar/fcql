@@ -74,4 +74,4 @@ AND aDateKey IN ('2069-07-21T00:37:33.589Z', '2037-11-11T22:50:53.589Z');
 ```
 
 ## Want to contribute?
-It is Open Open Source. Whoever sends a PR, which gets accepted, receives the write permissions.
+It is [Open Open Source](http://openopensource.org/). Whoever sends a PR, which gets accepted, receives the write permissions.
