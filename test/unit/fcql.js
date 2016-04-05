@@ -15,7 +15,9 @@ describe('fcql', function () {
 
     it('should exist namespaced strategies ', function () {
         demand(fcql.strategy).must.exist();
-        demand(fcql.strategy.Simple).must.exist();
+        demand(fcql.strategy.simple).must.exist();
+        demand(fcql.strategy.networkTopology).must.exist();
+        demand(fcql.strategy.oldNetworkTopology).must.exist();
     });
 
     it('should create new instances all the time', function () {

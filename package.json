@@ -22,13 +22,13 @@
         }
     ],
     "dependencies": {
-        "stampit": ">= 0.6.1",
-        "underscore": ">= 1.5.2",
-        "underscore.string": ">= 2.3.3"
+        "stampit": "^1.2.0",
+        "underscore": "^1.5.2",
+        "underscore.string": "^2.3.3"
     },
     "devDependencies": {
-        "mocha": ">= 1.15.1",
-        "must": ">= 0.10.0"
+        "mocha": "^2.4.5",
+        "must": "^0.13.1"
     },
     "repository": {
         "type": "git",
@@ -41,6 +41,6 @@
         "node": ">=0.10.0"
     },
     "scripts": {
-        "test": "mocha test -R spec"
+        "test": "mocha test --recursive"
     }
 }
