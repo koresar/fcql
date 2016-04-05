@@ -2,7 +2,7 @@
     "author": {
         "name": "Vasyl Boroviak",
         "email": "kore.sar@gmail.com",
-        "url": "http://google.com/+VasylBoroviak"
+        "url": "https://twitter.com/kore_sar"
     },
     "contributors": [],
     "name": "fcql",
@@ -27,6 +27,7 @@
         "underscore.string": "^2.3.3"
     },
     "devDependencies": {
+        "jshint": "^2.9.1",
         "mocha": "^2.4.5",
         "must": "^0.13.1"
     },
@@ -41,6 +42,7 @@
         "node": ">=0.10.0"
     },
     "scripts": {
-        "test": "mocha test --recursive"
+        "test": "npm run lint && mocha test --recursive",
+        "lint": "jshint lib/"
     }
 }
