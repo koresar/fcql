@@ -1,48 +1,48 @@
 {
-    "author": {
-        "name": "Vasyl Boroviak",
-        "email": "kore.sar@gmail.com",
-        "url": "https://twitter.com/kore_sar"
-    },
-    "contributors": [],
-    "name": "fcql",
-    "version": "0.1.0",
-    "description": "Fluent syntax for Apache Cassandra CQL",
-    "keywords": [
-        "cassandra",
-        "cql",
-        "cql3",
-        "fluent",
-        "node"
-    ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/koresar/fcql/blob/master/LICENSE"
-        }
-    ],
-    "dependencies": {
-        "stampit": "^1.2.0",
-        "underscore": "^1.5.2",
-        "underscore.string": "^2.3.3"
-    },
-    "devDependencies": {
-        "jshint": "^2.9.1",
-        "mocha": "^2.4.5",
-        "must": "^0.13.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/koresar/fcql.git"
-    },
-    "bugs": {
-        "url": "https://github.com/koresar/fcql/issues"
-    },
-    "engines": {
-        "node": ">=0.10.0"
-    },
-    "scripts": {
-        "test": "npm run lint && mocha test --recursive",
-        "lint": "jshint lib/"
+  "author": {
+    "name": "Vasyl Boroviak",
+    "email": "kore.sar@gmail.com",
+    "url": "https://twitter.com/kore_sar"
+  },
+  "contributors": [],
+  "name": "fcql",
+  "version": "0.1.1",
+  "description": "Fluent syntax for Apache Cassandra CQL",
+  "keywords": [
+    "cassandra",
+    "cql",
+    "cql3",
+    "fluent",
+    "node"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/koresar/fcql/blob/master/LICENSE"
     }
+  ],
+  "dependencies": {
+    "stampit": "^1.2.0",
+    "underscore": "^1.5.2",
+    "underscore.string": "^2.3.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "must": "^0.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koresar/fcql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/koresar/fcql/issues"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "npm run lint && mocha test --recursive",
+    "lint": "jshint lib/"
+  }
 }
