@@ -8,7 +8,7 @@ describe('fcql', function () {
     it('should contain all 16 CQL types', function () {
         var types = [
             'ascii', 'bigint', 'blob', 'boolean', 'counter', 'decimal', 'double', 'float',
-            'inet', 'int', 'text', 'timestamp', 'timeuuidl', 'uuid', 'varchar', 'varint'
+            'inet', 'int', 'text', 'timestamp', 'timeuuidl', 'timeuuid', 'uuid', 'varchar', 'varint'
         ];
         _.difference(types, _.keys(fcql)).must.be.empty();
     });
