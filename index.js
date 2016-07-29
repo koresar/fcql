@@ -57,7 +57,8 @@ Object.freeze(exportObject.consistency);
  * @prop {string} int -         CQL 'int' type.
  * @prop {string} text -        CQL 'text' type.
  * @prop {string} timestamp -   CQL 'timestamp' type.
- * @prop {string} timeuuidl -   CQL 'timeuuidl' type.
+ * @prop {string} timeuuidl -   CQL 'timeuuidl' type (same as timeuuid).
+ * @prop {string} timeuuid -    CQL 'timeuuid' type.
  * @prop {string} uuid -        CQL 'uuid' type.
  * @prop {string} varchar -     CQL 'varchar' type.
  * @prop {string} varint -      CQL 'varint' type.
