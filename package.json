@@ -6,7 +6,7 @@
   },
   "contributors": [],
   "name": "fcql",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Fluent syntax for Apache Cassandra CQL",
   "keywords": [
     "cassandra",
